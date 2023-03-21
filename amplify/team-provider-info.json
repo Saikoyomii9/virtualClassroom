@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-virtualclassroom-staging-153238-authRole",
+      "UnauthRoleArn": "arn:aws:iam::231258968140:role/amplify-virtualclassroom-staging-153238-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::231258968140:role/amplify-virtualclassroom-staging-153238-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-virtualclassroom-staging-153238-deployment",
+      "UnauthRoleName": "amplify-virtualclassroom-staging-153238-unauthRole",
+      "StackName": "amplify-virtualclassroom-staging-153238",
+      "StackId": "arn:aws:cloudformation:us-east-1:231258968140:stack/amplify-virtualclassroom-staging-153238/47bcf6c0-c66b-11ed-b468-0e5a3691d669",
+      "AmplifyAppId": "d2a4huxo89sd10"
+    },
+    "categories": {
+      "auth": {
+        "VirtualClassroom": {}
+      }
+    }
+  }
+}
