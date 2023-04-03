@@ -9,7 +9,7 @@ const SideMenu = () => {
         const menuItems = [
                 {
                         key: '/',
-                        label: 'HomeScreen'
+                        label: 'Home Screen'
                 },
                 {
                         key: 'announcements',
@@ -37,11 +37,12 @@ const SideMenu = () => {
                 } else {
                         navigate(menuItem.key);
                 }
+                navigate(menuItem.key);
         }
 
         return (
                 <Menu items={menuItems} onClick={onMenuItemClick}/>
-        )
+        );
 
 
 }
