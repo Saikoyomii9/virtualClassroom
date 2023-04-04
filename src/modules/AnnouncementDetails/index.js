@@ -45,7 +45,7 @@ const HomeScreen = () => {
                 <div>
 
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '50px', fontSize: 50 }}>
-                                Display Announcements
+                                Announcement Details
                         </div>
                         <Card title={'HOME SCREEN'}>
 
@@ -54,7 +54,7 @@ const HomeScreen = () => {
                                         columns={tableColumns}
                                         rowKey='id'
                                         onRow={(list) => ({
-                                                onClick: () => navigate(`announcementDetails/:id${list.id}`)
+                                                onClick: () => navigate(`announcements${list.id}`)
                                         })}
                                 />
 

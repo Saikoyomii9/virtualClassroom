@@ -1,8 +1,9 @@
-import { Card, Form, Input, Button, InputNumber, message, Descriptions} from 'antd';
+import { Card, Form, Input, Button, InputNumber, message, Select} from 'antd';
+import { DataStore } from 'aws-amplify';
+import { Announcement } from '../../models';
+const { TextArea }  = Input;
 
-const { TextArea}  = Input;
-
-const CreateAnnouncementsScreen = () => {
+const AnnouncementsDetailsScreen = () => {
 
         const onFinish = ({title, body}) => {
                 if(!title) {
@@ -17,10 +18,10 @@ const CreateAnnouncementsScreen = () => {
                 };
 
         return (
-                <Card title={'Create Announcements'} style={styles.page}>
+                <Card title={'Announcements Details'} style={styles.page}>
                                 <Form layout="vertical" onFinish={onFinish}>
-                                        <Form.Item label={'Title'} required name='name'>
-                                                <Input placeholder="Enter Name" />
+                                        <Form.Item label={'Title'} required name='title'>
+                                                <Input placeholder="Enter Title" />
                                         </Form.Item>
                                         <Form.Item label={"Body"} required name='body'>
                                                 <TextArea 
@@ -28,11 +29,39 @@ const CreateAnnouncementsScreen = () => {
                                                         placeholder='Enter Description'
                                                 />
                                         </Form.Item>
-                                        <Form.Item>
-                                <Button type="primary" htmlType="submit"> Submit</Button>
-                        </Form.Item>
+
+                        <Form.Item label={'Url'} required name='uri'>
+                    <Input placeholder='Enter url Ex: https://www.hostinger.com' />
+                </Form.Item>
+                <Form.Item label={'Title'} required name='title'>
+                    <Input placeholder='Enter A Title' />
+                </Form.Item>
+                <Form.Item label={'Type'} required name='urlType'>
+                    <Select defaultValue="Select Type"
+                        style={{ width: '100%' }}
+                        options={[
+                            {
+                                value: 'Link',
+                                label: 'Link',
+                            },
+                            {
+                                value: 'Tutorial',
+                                label: 'Tutorial',
+                            },
+                        ]}
+                    />
+                </Form.Item>
+
+                <Form.Item>
+                    <Button type='primary' htmlType='submit'>Submit</Button>
+                </Form.Item>
                                 </Form>
-                </Card>
+
+                               
+            <Form layout='vertical' onFinish={onFinish}>
+                
+            </Form>
+        </Card>
         );
 };
 
@@ -43,4 +72,4 @@ const styles = {
         },
 }
 
-export default CreateAnnouncementsScreen;
+export default AnnouncementsDetailsScreen;
