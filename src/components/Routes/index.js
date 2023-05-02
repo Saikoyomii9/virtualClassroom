@@ -4,6 +4,7 @@ import HomeScreen from "../../modules/HomeScreen";
 import ViewFilesScreen from "../../modules/ViewFilesScreen";
 import ViewWebLinksScreen from "../../modules/ViewWeblinksScreen";
 import AnnouncementDetailsScreen from "../../modules/AnnouncementDetails";
+import UpdateAnnouncementsScreen from "../../modules/UpdateAnnouncementsScreen";
 
 const AppRoutes = () => {
         return (
@@ -13,6 +14,8 @@ const AppRoutes = () => {
         <Route path="announcementDetails/:id" element={<AnnouncementDetailsScreen/>}/>
         <Route path="files" element={<ViewFilesScreen />}/>
         <Route path="webLinks" element={<ViewWebLinksScreen />}/>
+        <Route path="announcementDetails/update/:id" element={<UpdateAnnouncementsScreen />}/>
+
 </Routes>
         );
 };

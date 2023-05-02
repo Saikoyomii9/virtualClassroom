@@ -1,21 +1,17 @@
-import { Card, Descriptions, Divider, List, Button, Table } from 'antd'
+import { Card, Table } from 'antd'
 import { useEffect, useState } from 'react';
-// import {Link} from 'react'
 import { DataStore } from 'aws-amplify';
 import { Announcement } from '../../models';
 import { useNavigate } from "react-router-dom";
 
 const HomeScreen = () => {
 
-        const [announcement, setAnnouncement] = useState();
         const navigate = useNavigate();
-
+        const [announcement, setAnnouncement] = useState([]);
 
         useEffect(() => {
                 DataStore.query(Announcement).then(setAnnouncement);
         }, []);
-
-        console.log(Announcement);
 
         const tableColumns = [
 
@@ -53,11 +49,10 @@ const HomeScreen = () => {
                                         dataSource={announcement}
                                         columns={tableColumns}
                                         rowKey='id'
-                                        onRow={(list) => ({
-                                                onClick: () => navigate(`announcementDetails/:id${list.id}`)
+                                        onRow={(announcement) => ({
+                                                onClick: () => navigate(`announcementDetails/${announcement.id}`)
                                         })}
                                 />
-
                         </Card>
 
                        {/* <Descriptions bordered column={{lg: 1, md: 1, sm: 1}}>

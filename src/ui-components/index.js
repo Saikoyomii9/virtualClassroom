@@ -5,6 +5,8 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
+export { default as WebLinkCreateForm } from "./WebLinkCreateForm";
+export { default as WebLinkUpdateForm } from "./WebLinkUpdateForm";
 export { default as AnnouncementCreateForm } from "./AnnouncementCreateForm";
 export { default as AnnouncementUpdateForm } from "./AnnouncementUpdateForm";
 export { default as InstructorCreateForm } from "./InstructorCreateForm";

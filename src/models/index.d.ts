@@ -1,6 +1,6 @@
 import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
-import { LazyLoading, LazyLoadingDisabled, AsyncCollection } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
@@ -14,7 +14,6 @@ type EagerWebLink = {
   readonly id: string;
   readonly Title: string;
   readonly URL: string;
-  readonly announcementID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -27,7 +26,6 @@ type LazyWebLink = {
   readonly id: string;
   readonly Title: string;
   readonly URL: string;
-  readonly announcementID: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -46,8 +44,6 @@ type EagerAnnouncement = {
   readonly id: string;
   readonly Title: string;
   readonly Body: string;
-  readonly WebLinks?: (WebLink | null)[] | null;
-  readonly instructorID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -60,8 +56,6 @@ type LazyAnnouncement = {
   readonly id: string;
   readonly Title: string;
   readonly Body: string;
-  readonly WebLinks: AsyncCollection<WebLink>;
-  readonly instructorID?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -80,7 +74,6 @@ type EagerInstructor = {
   readonly id: string;
   readonly Name: string;
   readonly Email: string;
-  readonly Announcements?: (Announcement | null)[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -93,7 +86,6 @@ type LazyInstructor = {
   readonly id: string;
   readonly Name: string;
   readonly Email: string;
-  readonly Announcements: AsyncCollection<Announcement>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

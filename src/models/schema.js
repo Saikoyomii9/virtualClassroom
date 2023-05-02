@@ -24,13 +24,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "announcementID": {
-                    "name": "announcementID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -54,15 +47,6 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byAnnouncement",
-                        "fields": [
-                            "announcementID"
-                        ]
-                    }
                 },
                 {
                     "type": "auth",
@@ -106,29 +90,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "WebLinks": {
-                    "name": "WebLinks",
-                    "isArray": true,
-                    "type": {
-                        "model": "WebLink"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "announcementID"
-                        ]
-                    }
-                },
-                "instructorID": {
-                    "name": "instructorID",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -152,15 +113,6 @@ export const schema = {
                 {
                     "type": "model",
                     "properties": {}
-                },
-                {
-                    "type": "key",
-                    "properties": {
-                        "name": "byInstructor",
-                        "fields": [
-                            "instructorID"
-                        ]
-                    }
                 },
                 {
                     "type": "auth",
@@ -203,22 +155,6 @@ export const schema = {
                     "type": "String",
                     "isRequired": true,
                     "attributes": []
-                },
-                "Announcements": {
-                    "name": "Announcements",
-                    "isArray": true,
-                    "type": {
-                        "model": "Announcement"
-                    },
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true,
-                    "association": {
-                        "connectionType": "HAS_MANY",
-                        "associatedWith": [
-                            "instructorID"
-                        ]
-                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -266,5 +202,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.5",
-    "version": "8c5affae5c79172a2598e4bf60f373ac"
+    "version": "1ac1f4695dd3125a612383fec75061f8"
 };

@@ -1,66 +1,58 @@
-import { Card, Form, Input, Button, InputNumber, message, Select} from 'antd';
+import { Card, Form, Input, Button, message} from 'antd';
 import { DataStore } from 'aws-amplify';
+import { useState, useEffect } from 'react';
 import { Announcement } from '../../models';
+import { useNavigate } from 'react-router-dom';
+
 const { TextArea }  = Input;
 
-const AnnouncementsDetailsScreen = () => {
+const CreateAnnouncementsScreen = () => {
 
-        const onFinish = ({title, body}) => {
-                if(!title) {
+        const [announcement, setAnnouncement] = useState();
+
+        useEffect(() => {
+                DataStore.query(Announcement).then(setAnnouncement);
+        }, []);
+
+        const navigate = useNavigate();
+
+        const onFinish = ({Title, Body}) => {
+                if(!Title) {
                         message.error('Title is required!');
                         return;
                 }
-                if(!body) {
+                if(!Body) {
                         message.error('Body description is required!');
                         return;
                 }
-                message.success('Announcement Created!');
-                };
+                DataStore.save(new Announcement({
+                        Title,
+                        Body,
+                }));
+                message.success('Announcement Created');
+                navigate('/');
+        };
 
         return (
-                <Card title={'Announcements Details'} style={styles.page}>
+                <Card title={'Create New Announcements'} style={styles.page}>
                                 <Form layout="vertical" onFinish={onFinish}>
-                                        <Form.Item label={'Title'} required name='title'>
+                                        <Form.Item label={'Title'} required name='Title'>
                                                 <Input placeholder="Enter Title" />
                                         </Form.Item>
-                                        <Form.Item label={"Body"} required name='body'>
+                                        <Form.Item label={"Body"} required name='Body'>
                                                 <TextArea 
-                                                        rows={4}
+                                                        rows={3}
                                                         placeholder='Enter Description'
                                                 />
                                         </Form.Item>
 
-                        <Form.Item label={'Url'} required name='uri'>
+                        <Form.Item label={'WebLink'} required name='uri'>
                     <Input placeholder='Enter url Ex: https://www.hostinger.com' />
                 </Form.Item>
-                <Form.Item label={'Title'} required name='title'>
-                    <Input placeholder='Enter A Title' />
-                </Form.Item>
-                <Form.Item label={'Type'} required name='urlType'>
-                    <Select defaultValue="Select Type"
-                        style={{ width: '100%' }}
-                        options={[
-                            {
-                                value: 'Link',
-                                label: 'Link',
-                            },
-                            {
-                                value: 'Tutorial',
-                                label: 'Tutorial',
-                            },
-                        ]}
-                    />
-                </Form.Item>
-
                 <Form.Item>
                     <Button type='primary' htmlType='submit'>Submit</Button>
                 </Form.Item>
                                 </Form>
-
-                               
-            <Form layout='vertical' onFinish={onFinish}>
-                
-            </Form>
         </Card>
         );
 };
@@ -72,4 +64,4 @@ const styles = {
         },
 }
 
-export default AnnouncementsDetailsScreen;
+export default CreateAnnouncementsScreen;
